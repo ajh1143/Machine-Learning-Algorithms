@@ -3,8 +3,8 @@
 #Yields basic information about data repository 
 #prior to machine learning analysis
 
-
 import pandas as pd
+import matplotlib as mplt
 
 def surveyData(data_url, columns)
    #Access data, apply titles
@@ -19,6 +19,12 @@ def surveyData(data_url, columns)
    print(data.groupby('Sex').size())
    #statistics
    print(data.describe())
+   #Histograms
+   data.hist()
+   mplt.show()
+   #Correlation plots
+   scatter_matrix(data)
+   mplt.show()
 
 #set target
 data_url = "https://archive.ics.uci.edu/ml/
@@ -27,4 +33,4 @@ data_url = "https://archive.ics.uci.edu/ml/
 columns = ['Sex','Length','Diameter','Height','WholeWeight', 
            'ShuckedWeight', 'VisceraWeight', 'ShellWeight', 'Rings']
 #pass target and titles to surveyData and run the program                                     
-def surveyData(data_url, columns)
+surveyData(data_url, columns)
